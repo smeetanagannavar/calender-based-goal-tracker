@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+
+    "dev": "webpack serve --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +18,13 @@
     "url": "https://github.com/smeetanagannavar/calender-based-goal-tracker/issues"
   },
   "homepage": "https://github.com/smeetanagannavar/calender-based-goal-tracker#readme",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0"
-  }
+  },
+  "devDependencies": {
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "description": ""
 }
