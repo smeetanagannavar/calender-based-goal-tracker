@@ -1,4 +1,7 @@
-class Task {
+export const CATEGORIES = ["Work", "Personal", "Urgent"];
+export const PRIORITIES = ["Low", "Medium", "High"];
+
+export class Task {
     constructor(id, title, date, category) {
         this.id = id;
         this.title = title;

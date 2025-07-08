@@ -4,26 +4,41 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Calender Goal Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+      body {
+
+      }
+    </style>
   </head>
   <body>
      <div class="container">
-        <h1>Calender Goal Tracker</h1>
+        <h1>Calender Goal </h1>
 
-        <form id="taskForm">
+        <form id="task-form">
             <input type="text" id="title" placeholder="Task title" required />
             <input type="date" id="date" required />
+
             <select id="category">
                 <option value="work">Work</option>
                 <option value="personal">Personal</option>
                 <option value="urgent">urgent</option>
             </select>
+
+            <slect id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </slect>
+
             <button type="submit">Add Task</button>
         </form>
 
         <div id="Calender"></div>
         </div>
 
-        <script src="main.js"></script>
+        <script type="module" src="src/main.js"></script>
 </body>
 </html>
