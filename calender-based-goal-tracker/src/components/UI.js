@@ -7,5 +7,8 @@ export function renderTask(task, container) {
 }
 
 export function clearTasks(container) {
-    container,innerHTML = '';
+    const taskList = document.getElementById('taskList');
+    if (taskList) {
+        taskList.innerHTML = '';
+    }
 }
