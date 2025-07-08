@@ -1,5 +1,7 @@
 import { Task } from "./task";
 
+const tasks =[];
+
 export class TaskList {
     constructor() {
         this.tasks = [];
@@ -15,6 +17,10 @@ export class TaskList {
 
     getTasks() {
         return this.tasks;
+    }
+
+    getTasksByDate(date) {
+        return this.tasks.filter(task => task.date === date);
     }
 
    getALLTasks() {

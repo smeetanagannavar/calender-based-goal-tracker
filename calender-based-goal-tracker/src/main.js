@@ -4,7 +4,8 @@ import { renderTask, clearTasks } from "./components/UI";
 
 const taskList = new TaskList();
 const form = document.getElementById('task-form');
-const taskContainer = document.getElementById('task-container');
+const taskContainer = document.getElementById('task-list');
+
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ form.addEventListener('submit', (e) => {
 
 function displayTasks(date) {
     clearTasks(taskContainer);
-    const tasks = taskList.getTaskByDate(date);
+    const tasks = taskList.getTasksByDate(date);
     tasks.forEach(task => {
         renderTask(task, taskContainer);
     } );
