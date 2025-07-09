@@ -28,11 +28,31 @@
         background-color: #28a745;
       }
 
-    </style>
-  </head>
-  <body>
-     <div class="container">
-     
+        .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr); /* 7 columns for 7 days */
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .calendar-cell {
+        border: 1px solid #ccc;
+        padding: 10px;
+        min-height: 100px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      .calendar-cell h4 {
+        margin: 0;
+        font-size: 14px;
+      }
+
+        </style>
+      </head>
+      <body>
+        <div class="container">
+        
         <h1>Calendar Goal </h1>
 
         <form id="task-form">
@@ -53,8 +73,8 @@
 
             <button type="submit">Add Task</button>
         </form>
-
-        <div id="Calender"></div>
+        
+        <div id="Calendar" class="calendar-grid"></div>
          <ul id="task-list"></ul>
         </div>
 
