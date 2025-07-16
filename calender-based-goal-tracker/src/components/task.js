@@ -2,12 +2,17 @@ export const CATEGORIES = ["Work", "Personal", "Urgent"];
 export const PRIORITIES = ["Low", "Medium", "High"];
 
 export class Task {
-    constructor(id, title, date, category, priority) {
+    constructor(id, title, date, category, priority, completed = false) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.category = category;
         this.priority = priority;
+        this.completed = completed;
+    }
+
+    toggleCompleted(){
+        this.completed = !this.completed;
     }
 
     toString() {

@@ -62,12 +62,14 @@ for(let day of days){
   header.classList.add('day-header');
   header.textContent = day;
   calendarContainer.appendChild(header);
+ 
 }
   // fill initial empty cells (if month doesn't start on Sunday)
   for(let i=0; i<startDay; i++){
     const emptyCell = document.createElement('div');
     emptyCell.classList.add('calendar-cell');
     calendarContainer.appendChild(emptyCell);
+    
   }
 
   //fill the actual days
@@ -76,6 +78,11 @@ for(let day of days){
 
     const cell = document.createElement('div');
     cell.classList.add('calendar-cell');
+
+    const isToday = datestr === new Date().toISOString().split('T')[0];
+      if(isToday) {
+        cell.classList.add('today');
+  }
 
     const dateHeader = document.createElement('h4');
     dateHeader.textContent = day;
@@ -103,7 +110,26 @@ for(let day of days){
     tasks.forEach(task => {
       const taskItem = document.createElement('div');
       taskItem.classList.add('task', task.priority, task.category);
-      taskItem.textContent = task.title;
+      if(task.completed) {
+        taskItem.classList.add('completed');
+      }
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = task.completed;
+      checkbox.addEventListener('change', () => {
+        task.toggleCompleted();
+        renderCalendar(taskList, currentDate); // re-render to show updated tasks
+      });
+
+      const lable = document.createElement('span');
+      lable.textContent = task.title;
+      lable.style.marginLeft = '5px';
+      taskItem.appendChild(checkbox);
+      taskItem.appendChild(lable);
+
+
+      //taskItem.textContent = task.title;
       taskItem.setAttribute('draggable', 'true');
       taskItem.dataset.taskId = task.id;
 
