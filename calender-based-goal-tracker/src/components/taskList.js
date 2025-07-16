@@ -26,4 +26,15 @@ export class TaskList {
    getALLTasks() {
         return this.tasks.map(task => task.toString());
     }
+
+    getTaskById(id) {
+        return this.tasks.find(task => task.id.toString() === id.toString());
+    }
+
+    updateTaskDate(taskId, newDate) {
+        const task = this.getTaskById(taskId);
+        if(task) {
+            task.date = newDate;
+        }
+    }
 }

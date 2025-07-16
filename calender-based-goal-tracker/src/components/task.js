@@ -2,11 +2,12 @@ export const CATEGORIES = ["Work", "Personal", "Urgent"];
 export const PRIORITIES = ["Low", "Medium", "High"];
 
 export class Task {
-    constructor(id, title, date, category) {
+    constructor(id, title, date, category, priority) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.category = category;
+        this.priority = priority;
     }
 
     toString() {

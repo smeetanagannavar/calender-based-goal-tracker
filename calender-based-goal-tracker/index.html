@@ -17,36 +17,46 @@
         margin: 5px 0;
         padding: 10px;
         border-radius: 5px;
-        color: rgb(73, 23, 201);
       }
 
-      .task.work {
-        background-color: #007bff;
+      .task.low {
+        background-color: #e6db14;
       }
 
-      .task.personal {
-        background-color: #28a745;
+      .task.medium {
+        background-color: #0ad217;
       }
 
-        .calendar-grid {
+      .task.high {
+        background-color: #ff0000;
+      }
+      
+      .calendar-grid {
         display: grid;
-        grid-template-columns: repeat(7, 1fr); /* 7 columns for 7 days */
-        gap: 10px;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
         margin-top: 20px;
-      }
+    }
 
-      .calendar-cell {
-        border: 1px solid #ccc;
-        padding: 10px;
-        min-height: 100px;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-      }
+    .day-header {
+      font-weight: bold;
+      text-align: center;
+      background-color: #e0e0e0;
+      padding: 6px;
+      border-radius: 5px;
+    }
 
-      .calendar-cell h4 {
-        margin: 0;
-        font-size: 14px;
-      }
+    .calendar-cell {
+      border: 1px solid #ccc;
+      padding: 6px;
+      min-height: 100px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .calendar-cell h4 {
+      margin: 0 0 5px 0;
+    }
 
         </style>
       </head>
@@ -73,8 +83,17 @@
 
             <button type="submit">Add Task</button>
         </form>
-        
-        <div id="Calendar" class="calendar-grid"></div>
+
+        <h2 id="month-year"></h2>
+        <div id="calendar" class="calendar-grid">
+
+        <div class="day-header">sun</div>
+        <div class="day-header">mon</div>
+        <div class="day-header">tue</div>
+        <div class="day-header">wed</div>
+        <div class="day-header">thu</div>
+        <div class="day-header">fri</div>
+        <div class="day-header">sat</div> 
          <ul id="task-list"></ul>
         </div>
 
