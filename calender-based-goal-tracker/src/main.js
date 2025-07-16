@@ -24,6 +24,7 @@ form.addEventListener('submit', (e) => {
 });
 
 let currentDate = new Date();
+currentDate.setDate(1);
 
   const monthNames = [
     "January", "February", "March", "April", "May", "June",
@@ -41,9 +42,9 @@ let currentDate = new Date();
   while(calendarContainer.children.length>7) {
   calendarContainer.removeChild(calendarContainer.lastChild);
  }
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth();
+  //const today = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
 
   monthYearHeading.textContent = `${monthNames[month]} ${year}`;
 
@@ -54,6 +55,14 @@ let currentDate = new Date();
 
 //calendarContainer.appendChild(cell);
 
+
+const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+for(let day of days){
+  const header = document.createElement('div');
+  header.classList.add('day-header');
+  header.textContent = day;
+  calendarContainer.appendChild(header);
+}
   // fill initial empty cells (if month doesn't start on Sunday)
   for(let i=0; i<startDay; i++){
     const emptyCell = document.createElement('div');
@@ -85,7 +94,7 @@ let currentDate = new Date();
       cell.style.backgroundColor = '';
       const taskId = e.dataTransfer.getData('text/plain');
       taskList.updateTaskDate(taskId, datestr);
-      renderCalendar(taskList); // re-render to show updated tasks
+      renderCalendar(taskList,currentDate); // re-render to show updated tasks
     });
 
 
@@ -116,6 +125,16 @@ let currentDate = new Date();
   }
 }
  }
+
+ document.getElementById("prev-month").addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth()-1);
+  renderCalendar(taskList, currentDate);
+ });
+
+ document.getElementById("next-month").addEventListener("click",() => {
+  currentDate.setMonth(currentDate.getMonth()+1);
+  renderCalendar(taskList, currentDate);
+ });
 
  // render omce on page load
  renderCalendar(taskList);
