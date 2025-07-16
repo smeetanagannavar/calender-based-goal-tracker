@@ -57,6 +57,13 @@
     .calendar-cell h4 {
       margin: 0 0 5px 0;
     }
+    .calendar-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
 
         </style>
       </head>
@@ -84,7 +91,11 @@
             <button type="submit">Add Task</button>
         </form>
 
+        <div class="calendar-controls">
+          <button id="prev-month">➡️ prev</button>
         <h2 id="month-year"></h2>
+        <button id="next-month">next ➡️</button>
+        </div>
         <div id="calendar" class="calendar-grid">
 
         <div class="day-header">sun</div>
